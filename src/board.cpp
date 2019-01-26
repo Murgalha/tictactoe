@@ -29,3 +29,13 @@ int Board::board_size() {
 char Board::get_mark_at(int row, int col) {
     return (this->mat)[row][col];
 }
+
+bool Board::is_full() {
+    for(int i = 0; i < this->_board_size; i++) {
+        for(int j = 0; j < this->_board_size; j++) {
+            if((this->mat)[i][j] == '-')
+                return false;
+        }
+    }
+    return true;
+}

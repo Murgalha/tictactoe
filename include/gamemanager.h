@@ -8,13 +8,17 @@ class GameManager {
 public:
     GameManager();
     ~GameManager();
-    void start_game();
-private:
     char get_winner_mark();
-    void change_player();
-    void get_user_input();
-    bool is_game_over();
+    char get_player_mark();
+    void set_turn(int, int, char);
     void print_board();
+    bool game_ended();
+private:
+    // functions
+    void change_player();
+    bool is_game_over();
+    
+    // variables
     std::unique_ptr<Board> board;
     int current_player;
     int winner;

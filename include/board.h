@@ -14,6 +14,7 @@ public:
     void set_board(int, int, char);
     int board_size();
     char get_mark_at(int, int);
+    bool is_full();
 private:
     char_matrix mat;
     int _board_size;
