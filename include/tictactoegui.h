@@ -20,7 +20,9 @@ private:
     // functions
     void draw_board();
     void draw_mark(int, int, char);
-    void process_mouse_click(int, int);    
+    BOARD_POS process_mouse_click(int, int);    
+    void process_turn(BOARD_POS);
+    void process_ai_turn();
 };
 
 #endif

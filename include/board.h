@@ -6,6 +6,10 @@
 
 typedef std::vector< std::vector<char> > char_matrix;
 
+typedef struct {
+    int row, column;
+} BOARD_POS;
+
 class Board {
 public:
     Board();

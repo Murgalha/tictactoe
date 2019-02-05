@@ -2,6 +2,7 @@
 
 GameManager::GameManager() {
     this->board = std::unique_ptr<Board>(new Board);
+    this->ai = std::unique_ptr<AI>(new AI(this->board.get(), 0));
     this->current_player = 1;
     this->winner = -1;
 }
@@ -54,6 +55,10 @@ bool GameManager::game_ended() {
     return (this->winner >= 0 ? true : false);
 }
 
+int GameManager::get_current_player() {
+    return this->current_player; 
+}
+
 void GameManager::change_player() {
     this->current_player =
         (this->current_player == 1 ? 2 : 1);
@@ -71,4 +76,12 @@ void GameManager::set_turn(int row, int col, char mark) {
     this->board->set_board(row, col, mark);
     if(!this->is_game_over())
         this->change_player();
+}
+
+char GameManager::get_mark_at(int row, int col) {
+    return this->board->get_mark_at(row, col);
+}
+
+BOARD_POS GameManager::get_ai_move() {
+    return this->ai->get_move();
 }
